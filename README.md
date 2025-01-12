@@ -23,7 +23,19 @@ bench:run()   -- Run tests
 bench:print() -- Show stats
 ```
 
-# Lisence
+## Options
+Instead of a number, you can also pass a table to `humb:new_test()` to customize the behavior.
+
+```lua
+-- Default options
+humb:new_test({
+  rpt      = 1,        -- Time to repeat each test-case
+  digits   = 2,        -- Number of digits in the fraction part of the time to show
+  get_time = os.clock, -- Function to get the time
+})
+```
+
+## Lisence
 Copyright (c) 2025 Satoshi Soma <noreply@amekusa.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
