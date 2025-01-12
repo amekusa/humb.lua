@@ -14,7 +14,7 @@ function M.new_test(...)
 		self.cases = {}
 		self.logs = {}
 		self.rpt = opts.rpt or 1
-		self.now = opts.now or os.clock
+		self.get_time = opts.get_time or os.clock
 	end
 
 	function humb:log(msg)
@@ -39,7 +39,7 @@ function M.new_test(...)
 	function humb:run()
 		local cases = self.cases
 		local rpt = self.rpt
-		local now = self.now
+		local now = self.get_time
 		local time_fmt = '%.2f'
 		local stats = {
 			rpt = rpt,
