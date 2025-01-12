@@ -35,6 +35,13 @@ humb:new_test({
 })
 ```
 
+### `bench:print()`
+You can pass a custom function to output the stats. The default value is `print`.
+
+```lua
+bench:print(vim.notify) -- Recommended for neovim
+```
+
 ## Lisence
 Copyright (c) 2025 Satoshi Soma <noreply@amekusa.com>
 
