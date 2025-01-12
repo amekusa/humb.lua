@@ -4,7 +4,7 @@
 local NS = (...)
 
 local M = {}
-function M.new_test(...)
+function M:new_test(...)
 	local humb = {}
 
 	function humb:init(opts)
