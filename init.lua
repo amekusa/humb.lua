@@ -40,16 +40,19 @@ function M.new_test(...)
 		local cases = self.cases
 		local rpt = self.rpt
 		local now = self.now
-		local start_at, end_at, elapsed
+		local time_fmt = '%.2f'
 		local stats = {
 			rpt = rpt,
 			cases = {}
 		}
 
 		self:log('--- Start ---')
+		self:log('Repeats: '..rpt)
+
 		for i = 1, #cases do
 			local c = cases[i]
 			local fn = c.fn
+			local start_at, end_at, elapsed
 
 			self:log('#'..i..': '..c.name)
 			start_at = now()
@@ -57,14 +60,17 @@ function M.new_test(...)
 				fn()
 			end
 			end_at = now()
-			elapsed = string.format('%.2f', end_at - start_at)
-			table.insert(stats.cases, {
+			elapsed = end_at - start_at
+
+			local stat = {
 				index = i,
 				name = c.name,
-				elapsed = elapsed,
-			})
-
-			self:log('  Elapsed: '..elapsed)
+				elapsed = string.format(time_fmt, elapsed),
+				average = string.format(time_fmt, elapsed / rpt),
+			}
+			table.insert(stats.cases, stat)
+			self:log('  Elapsed: '..stat.elapsed)
+			self:log('  Average: '..stat.average)
 		end
 		self:log('=== End ===')
 	end
