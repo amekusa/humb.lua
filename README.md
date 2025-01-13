@@ -1,6 +1,4 @@
 # humb.lua
-Shortened for "HUMmingBird"
-
 humb is an extremely simple Lua library for benchmarking.
 It has no dependencies. Just clone this repo in your project directory, and `require` it in your Lua code.
 
@@ -15,11 +13,11 @@ git clone git@github.com:amekusa/humb.lua.git humb
 local humb = require('humb')
 local bench = humb:new_test(1000) -- Repeat 1000 times
 
--- Add test cases
+-- Add test cases to compare
 bench:case('A', function_A)
 bench:case('B', function_B)
 
-bench:run()   -- Run tests
+bench:run()   -- Run test cases
 bench:print() -- Show stats
 ```
 
@@ -29,7 +27,7 @@ Instead of a number, you can also pass a table to `humb:new_test()` to customize
 ```lua
 -- Default options
 humb:new_test({
-  rpt      = 1,        -- Time to repeat each test-case
+  rpt      = 1,        -- Times to repeat each test case
   digits   = 2,        -- Number of digits in the fraction part of the time to show
   get_time = os.clock, -- Function to get the time
 })
