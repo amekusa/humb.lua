@@ -11,14 +11,14 @@ git clone git@github.com:amekusa/humb.lua.git humb
 ## How to use
 ```lua
 local humb = require('humb')
-local bench = humb:new_test(1000) -- Repeat 1000 times
+local test = humb:new_test(1000) -- Repeat 1000 times
 
 -- Add test cases to compare
-bench:case('A', function_A)
-bench:case('B', function_B)
+test:case('A', function_A)
+test:case('B', function_B)
 
-bench:run()   -- Run test cases
-bench:print() -- Show stats
+test:run()   -- Run test cases
+test:print() -- Show stats
 ```
 
 ## Options
@@ -33,11 +33,11 @@ humb:new_test({
 })
 ```
 
-### `bench:print()`
+### `test:print()`
 You can pass a custom function to output the stats. The default value is `print`.
 
 ```lua
-bench:print(vim.notify) -- Recommended for neovim
+test:print(vim.notify) -- Recommended for neovim
 ```
 
 ## Lisence
